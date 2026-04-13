@@ -54,25 +54,24 @@ const services = [
   },
 ];
 
-/* TODO: Replace with actual project data and images */
 const featuredProjects = [
   {
-    title: "Modern Kitchen Transformation",
-    category: "Kitchen Remodeling",
-    description: "Complete kitchen overhaul with custom cabinetry, quartz countertops, and modern appliances.",
-    image: "https://picsum.photos/seed/kitchen1/600/400",
+    title: "Pool Deck & Spa Transformation",
+    category: "Outdoor Living",
+    description: "Custom composite pool deck with integrated brick spa surround — a complete outdoor retreat.",
+    image: "/images/Pool Deck - Composite Decking/pool-deck-composite-completed-01.jpeg",
   },
   {
-    title: "Master Bathroom Retreat",
-    category: "Bathroom Remodeling",
-    description: "Luxury master bathroom featuring walk-in shower, freestanding tub, and heated floors.",
-    image: "https://picsum.photos/seed/bath1/600/400",
+    title: "Luxury Marble Bathroom",
+    category: "Bathroom Remodel",
+    description: "Full spa-style bathroom remodel with Calacatta marble slab, frameless glass shower, and soaking tub.",
+    image: "/images/Bathroom Remodel/bathroom-luxury-marble-01.jpeg",
   },
   {
-    title: "Complete Home Addition",
-    category: "Room Addition",
-    description: "600 sq ft family room addition with vaulted ceilings and seamless integration.",
-    image: "https://picsum.photos/seed/addition1/600/400",
+    title: "Custom Luxury Estate",
+    category: "Custom Home Build",
+    description: "Ground-up luxury estate build featuring ornate ironwork, arched windows, and resort-style grounds.",
+    image: "/images/Custom Home Build - Luxury Estate/luxury-estate-exterior.jpeg",
   },
 ];
 
@@ -81,10 +80,9 @@ export default function HomePage() {
     <div className="pt-16 md:pt-20">
       {/* Hero Section */}
       <section className="relative min-h-[90vh] md:min-h-screen flex items-center">
-        {/* TODO: Replace with actual hero image */}
         <Image
-          src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1920&q=80"
-          alt="JJ's Construction - Professional construction work"
+          src="/images/Custom Home Build - Mediterranean/mediterranean-home-front-facade.jpeg"
+          alt="JJ's Construction - Custom Mediterranean home build"
           fill
           className="object-cover"
           priority
@@ -164,10 +162,9 @@ export default function HomePage() {
         <div className="container-custom mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="relative rounded-2xl overflow-hidden shadow-xl">
-              {/* TODO: Replace with actual team/project image */}
               <Image
-                src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=800&q=80"
-                alt="JJ's Construction team at work"
+                src="/images/Custom Home Build - Luxury Estate/luxury-estate-framing.jpeg"
+                alt="JJ's Construction - luxury estate under construction"
                 width={800}
                 height={600}
                 className="object-cover w-full h-[400px] md:h-[500px]"

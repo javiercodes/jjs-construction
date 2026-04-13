@@ -69,10 +69,9 @@ export default function AboutPage() {
     <div className="pt-16 md:pt-20">
       {/* Hero */}
       <section className="relative h-[40vh] min-h-[300px] flex items-center">
-        {/* TODO: Replace with actual about hero image */}
         <Image
-          src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1920&q=80"
-          alt="About JJ's Construction"
+          src="/images/Concrete & Foundation Work/concrete-foundation-slab-pour.jpeg"
+          alt="About JJ's Construction - foundation work in progress"
           fill
           className="object-cover"
           priority
@@ -99,10 +98,9 @@ export default function AboutPage() {
         <div className="container-custom mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="relative rounded-2xl overflow-hidden shadow-xl">
-              {/* TODO: Replace with actual team photo */}
               <Image
-                src="https://images.unsplash.com/photo-1590650153855-d9e808231d41?w=800&q=80"
-                alt="JJ's Construction team"
+                src="/images/Custom Home Build - Modern/modern-home-completed.jpeg"
+                alt="JJ's Construction - completed modern home"
                 width={800}
                 height={600}
                 className="object-cover w-full h-[400px] md:h-[500px]"
