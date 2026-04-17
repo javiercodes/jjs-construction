@@ -260,20 +260,22 @@ export default function ContactContent() {
                 </div>
               </div>
 
-              {/* Map */}
-              <div className="rounded-xl overflow-hidden shadow-md h-[250px]">
-                {/* TODO: Replace with actual Google Maps embed with API key */}
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26510.65614483627!2d-117.78!3d34.1!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c32df893f0e46b%3A0x7530f8c5b9ebff76!2sLa%20Verne%2C%20CA!5e0!3m2!1sen!2sus!4v1"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  title="JJ's Construction - La Verne, CA"
-                />
-              </div>
+              {/* Directions CTA */}
+              <a
+                href="https://www.google.com/maps/search/JJ%27s+Construction+La+Verne+CA"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-4 bg-primary rounded-xl p-6 group hover:bg-accent transition-colors duration-300"
+              >
+                <div className="flex-shrink-0 w-12 h-12 bg-white/10 rounded-full flex items-center justify-center group-hover:bg-white/20 transition-colors">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+                </div>
+                <div>
+                  <p className="font-heading font-bold text-white text-sm">Get Directions</p>
+                  <p className="text-gray-300 text-xs mt-0.5 group-hover:text-white/80 transition-colors">La Verne, California — Open in Google Maps</p>
+                </div>
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-white/50 ml-auto group-hover:translate-x-1 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
             </div>
           </div>
         </div>
