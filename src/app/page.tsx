@@ -2,6 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 import TrustBar from "@/components/TrustBar";
 import CTASection from "@/components/CTASection";
+import HeroSection from "./HeroSection";
+import FadeUp from "@/components/FadeUp";
+import { StaggerGrid, StaggerItem } from "@/components/StaggerGrid";
 
 const services = [
   {
@@ -88,30 +91,9 @@ export default function HomePage() {
           priority
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/20" />
         <div className="relative z-10 container-custom mx-auto px-4 py-20">
-          <div className="max-w-2xl">
-            <span className="inline-block bg-accent/90 text-white font-heading font-semibold text-sm px-4 py-2 rounded-full mb-6 tracking-wide uppercase">
-              La Verne&apos;s Trusted Contractor
-            </span>
-            <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
-              Building Dreams in{" "}
-              <span className="text-accent">Southern California</span>
-            </h1>
-            <p className="text-gray-200 text-lg md:text-xl leading-relaxed mb-8 max-w-xl">
-              {/* TODO: Replace with actual company tagline */}
-              From kitchen remodels to commercial builds, JJ&apos;s Construction delivers
-              exceptional craftsmanship and reliable service you can count on.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link href="/contact" className="btn-primary text-lg !px-10 !py-4">
-                Get a Free Estimate
-              </Link>
-              <Link href="/portfolio" className="btn-outline text-lg">
-                View Our Work
-              </Link>
-            </div>
-          </div>
+          <HeroSection />
         </div>
       </section>
 
@@ -119,9 +101,9 @@ export default function HomePage() {
       <TrustBar variant="dark" />
 
       {/* Services Overview */}
-      <section className="section-padding bg-white">
+      <section className="section-padding bg-[#F5F4F0]">
         <div className="container-custom mx-auto">
-          <div className="text-center mb-12 md:mb-16">
+          <FadeUp className="text-center mb-12 md:mb-16">
             <span className="text-accent font-heading font-semibold text-sm uppercase tracking-widest">What We Do</span>
             <h2 className="font-heading text-3xl md:text-4xl font-bold text-primary mt-2 mb-4">
               Our Services
@@ -130,38 +112,39 @@ export default function HomePage() {
               From concept to completion, we offer comprehensive construction and remodeling services
               tailored to your needs and budget.
             </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          </FadeUp>
+          <StaggerGrid className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {services.map((service) => (
-              <Link
-                key={service.title}
-                href={service.href}
-                className="group bg-white rounded-xl p-8 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100"
-              >
-                <div className="text-primary group-hover:text-accent transition-colors duration-300 mb-4">
-                  {service.icon}
-                </div>
-                <h3 className="font-heading font-bold text-xl text-primary mb-3 group-hover:text-accent transition-colors">
-                  {service.title}
-                </h3>
-                <p className="text-charcoal/70 text-sm leading-relaxed mb-4">
-                  {service.description}
-                </p>
-                <span className="text-accent font-semibold text-sm flex items-center gap-1 group-hover:gap-2 transition-all">
-                  Learn More
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                </span>
-              </Link>
+              <StaggerItem key={service.title}>
+                <Link
+                  href={service.href}
+                  className="group flex flex-col bg-[#1C1917] rounded-xl p-8 border border-white/[0.06] hover:border-accent/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/40 h-full"
+                >
+                  <div className="text-accent group-hover:text-accent-light transition-colors duration-300 mb-5">
+                    {service.icon}
+                  </div>
+                  <h3 className="font-heading font-bold text-xl text-white mb-3 group-hover:text-accent transition-colors">
+                    {service.title}
+                  </h3>
+                  <p className="text-gray-400 text-sm leading-relaxed mb-5 flex-grow">
+                    {service.description}
+                  </p>
+                  <span className="text-accent font-semibold text-sm flex items-center gap-1 group-hover:gap-3 transition-all mt-auto">
+                    Learn More
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                  </span>
+                </Link>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerGrid>
         </div>
       </section>
 
       {/* Why Choose Us */}
-      <section className="section-padding bg-gray-light">
+      <section className="section-padding bg-white">
         <div className="container-custom mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="relative rounded-2xl overflow-hidden shadow-xl">
+            <FadeUp className="relative rounded-2xl overflow-hidden shadow-xl">
               <Image
                 src="/images/Custom Home Build - Luxury Estate/luxury-estate-framing.jpeg"
                 alt="JJ's Construction - luxury estate under construction"
@@ -170,51 +153,55 @@ export default function HomePage() {
                 className="object-cover w-full h-[400px] md:h-[500px]"
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-primary/90 to-transparent p-6">
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
                 <p className="text-white font-heading font-bold text-lg">
-                  {/* TODO: Replace with actual stat */}
                   Serving La Verne &amp; Surrounding Communities
                 </p>
               </div>
-            </div>
-            <div>
-              <span className="text-accent font-heading font-semibold text-sm uppercase tracking-widest">Why JJ&apos;s Construction</span>
-              <h2 className="font-heading text-3xl md:text-4xl font-bold text-primary mt-2 mb-6">
-                Your Vision, Our Expertise
-              </h2>
-              <p className="text-charcoal/70 mb-8 leading-relaxed">
-                {/* TODO: Replace with actual company differentiators */}
-                We believe every project deserves the highest level of attention, quality materials,
-                and skilled craftsmanship. That&apos;s why homeowners and businesses across Southern
-                California trust JJ&apos;s Construction.
-              </p>
-              <div className="space-y-5">
-                {[
-                  { title: "Experienced & Licensed", desc: "Fully licensed, bonded, and insured with 15+ years of experience." },
-                  { title: "On-Time & On-Budget", desc: "We respect your time and your investment with reliable project timelines." },
-                  { title: "Transparent Communication", desc: "Regular updates and open dialogue throughout every phase of your project." },
-                  { title: "Quality Craftsmanship", desc: "Premium materials and meticulous attention to detail on every build." },
-                ].map((item) => (
-                  <div key={item.title} className="flex gap-4">
-                    <div className="flex-shrink-0 w-10 h-10 bg-accent/10 rounded-full flex items-center justify-center mt-0.5">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                    </div>
-                    <div>
-                      <h3 className="font-heading font-bold text-primary">{item.title}</h3>
-                      <p className="text-charcoal/70 text-sm">{item.desc}</p>
-                    </div>
-                  </div>
-                ))}
+              <div className="absolute top-6 right-6 bg-accent text-white rounded-xl px-4 py-3 text-center shadow-lg">
+                <span className="font-heading font-bold text-2xl block">16+</span>
+                <span className="text-xs font-semibold uppercase tracking-wide">Years</span>
               </div>
+            </FadeUp>
+            <div>
+              <FadeUp delay={0.1}>
+                <span className="text-accent font-heading font-semibold text-sm uppercase tracking-widest">Why JJ&apos;s Construction</span>
+                <h2 className="font-heading text-3xl md:text-4xl font-bold text-primary mt-2 mb-6">
+                  Your Vision, Our Expertise
+                </h2>
+                <p className="text-charcoal/70 mb-8 leading-relaxed">
+                  Founded by brothers John and Adam Ramirez, JJ&apos;s Construction partners closely with clients to align their vision with our construction expertise — delivering functional, well-built spaces designed to perform and endure.
+                </p>
+              </FadeUp>
+              <StaggerGrid className="space-y-5">
+                {[
+                  { title: "16+ Years of Experience", desc: "Residential and commercial construction across projects of varying scale and complexity." },
+                  { title: "Precision & Quality Control", desc: "Every project executed with a disciplined, detail-driven approach to the highest industry standards." },
+                  { title: "Clear Communication", desc: "Accountability and transparency from start to finish — you're never left guessing." },
+                  { title: "Forward-Thinking Approach", desc: "We stay current with evolving building standards, materials, and construction practices." },
+                ].map((item) => (
+                  <StaggerItem key={item.title}>
+                    <div className="flex gap-4">
+                      <div className="flex-shrink-0 w-10 h-10 bg-accent/10 rounded-full flex items-center justify-center mt-0.5">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                      </div>
+                      <div>
+                        <h3 className="font-heading font-bold text-primary">{item.title}</h3>
+                        <p className="text-charcoal/70 text-sm">{item.desc}</p>
+                      </div>
+                    </div>
+                  </StaggerItem>
+                ))}
+              </StaggerGrid>
             </div>
           </div>
         </div>
       </section>
 
       {/* Featured Projects */}
-      <section className="section-padding bg-white">
+      <section className="section-padding bg-[#F5F4F0]">
         <div className="container-custom mx-auto">
-          <div className="text-center mb-12">
+          <FadeUp className="text-center mb-12">
             <span className="text-accent font-heading font-semibold text-sm uppercase tracking-widest">Our Work</span>
             <h2 className="font-heading text-3xl md:text-4xl font-bold text-primary mt-2 mb-4">
               Featured Projects
@@ -222,38 +209,41 @@ export default function HomePage() {
             <p className="text-charcoal/70 max-w-2xl mx-auto">
               Take a look at some of our recent residential and commercial projects across Southern California.
             </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+          </FadeUp>
+          <StaggerGrid className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
             {featuredProjects.map((project) => (
-              <Link
-                href="/portfolio"
-                key={project.title}
-                className="group rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
-              >
-                <div className="relative h-64 overflow-hidden">
-                  {/* TODO: Replace with actual project images */}
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-500"
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                  />
-                  <div className="absolute top-4 left-4">
-                    <span className="bg-accent text-white text-xs font-heading font-bold px-3 py-1 rounded-full">
-                      {project.category}
-                    </span>
+              <StaggerItem key={project.title}>
+                <Link
+                  href="/portfolio"
+                  className="group rounded-xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 block"
+                >
+                  <div className="relative h-72 overflow-hidden">
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-700"
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300" />
+                    <div className="absolute top-4 left-4">
+                      <span className="bg-accent text-white text-xs font-heading font-bold px-3 py-1 rounded-full">
+                        {project.category}
+                      </span>
+                    </div>
+                    <div className="absolute bottom-0 left-0 right-0 p-6 translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                      <h3 className="font-heading font-bold text-lg text-white mb-1">
+                        {project.title}
+                      </h3>
+                      <p className="text-gray-300 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 leading-snug">
+                        {project.description}
+                      </p>
+                    </div>
                   </div>
-                </div>
-                <div className="p-6 bg-white">
-                  <h3 className="font-heading font-bold text-lg text-primary mb-2 group-hover:text-accent transition-colors">
-                    {project.title}
-                  </h3>
-                  <p className="text-charcoal/70 text-sm">{project.description}</p>
-                </div>
-              </Link>
+                </Link>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerGrid>
           <div className="text-center mt-10">
             <Link href="/portfolio" className="btn-secondary">
               View All Projects
@@ -263,27 +253,28 @@ export default function HomePage() {
       </section>
 
       {/* Testimonial */}
-      <section className="section-padding bg-gray-light">
-        <div className="container-custom mx-auto">
-          <div className="max-w-4xl mx-auto text-center">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 mx-auto text-accent/30 mb-6" viewBox="0 0 24 24" fill="currentColor"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10H14.017zM0 21v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10H0z"/></svg>
-            {/* TODO: Replace with actual client testimonial */}
-            <blockquote className="font-heading text-xl md:text-2xl text-primary leading-relaxed mb-6 italic">
+      <section className="section-padding bg-[#0F1C2E] relative overflow-hidden">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 font-serif text-[220px] leading-none text-accent/5 select-none pointer-events-none -mt-8">
+          &ldquo;
+        </div>
+        <div className="container-custom mx-auto relative z-10">
+          <FadeUp className="max-w-3xl mx-auto text-center">
+            <blockquote className="font-heading text-xl md:text-2xl text-white leading-relaxed mb-8 italic font-medium">
               &ldquo;JJ&apos;s Construction exceeded our expectations on every level. The team was professional,
               communicated throughout the entire process, and delivered a kitchen that is beyond
               what we imagined. Highly recommend!&rdquo;
             </blockquote>
+            <div className="w-16 h-0.5 bg-accent mx-auto mb-6" />
             <div>
-              {/* TODO: Replace with actual client info */}
-              <p className="font-heading font-bold text-primary">Maria & David R.</p>
-              <p className="text-charcoal/60 text-sm">Kitchen Remodel — La Verne, CA</p>
+              <p className="font-heading font-bold text-white">Maria &amp; David R.</p>
+              <p className="text-gray-400 text-sm mt-1">Kitchen Remodel — La Verne, CA</p>
             </div>
-            <div className="flex items-center justify-center gap-1 mt-3">
+            <div className="flex items-center justify-center gap-1 mt-4">
               {[...Array(5)].map((_, i) => (
                 <svg key={i} xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-accent" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
               ))}
             </div>
-          </div>
+          </FadeUp>
         </div>
       </section>
 

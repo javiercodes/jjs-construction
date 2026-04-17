@@ -51,7 +51,7 @@ const localBusinessSchema = {
   name: "JJ's Construction",
   alternateName: "JJs Construction SoCal",
   url: "https://jjsconstructionsocal.com",
-  telephone: "+1-626-552-2471",
+  telephone: "+1-626-646-3423",
   address: {
     "@type": "PostalAddress",
     addressLocality: "La Verne",

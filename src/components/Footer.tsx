@@ -30,8 +30,7 @@ export default function Footer() {
               </span>
             </Link>
             <p className="text-gray-300 text-sm leading-relaxed mb-6">
-              {/* TODO: Replace with actual company description */}
-              La Verne&apos;s trusted general contractor. Building dreams and transforming spaces across Southern California since 2010.
+              Founded by brothers John and Adam Ramirez, JJ&apos;s Construction brings 16+ years of experience in residential and commercial construction across Southern California.
             </p>
             {/* TODO: Add actual social media links */}
             <div className="flex gap-3">
@@ -87,9 +86,9 @@ export default function Footer() {
                 <span>La Verne, California</span>
               </li>
               <li>
-                <a href="tel:+16265522471" className="flex items-start gap-3 hover:text-accent transition-colors">
+                <a href="tel:+16266463423" className="flex items-start gap-3 hover:text-accent transition-colors">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mt-0.5 text-accent flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                  (626) 552-2471
+                  (626) 646-3423
                 </a>
               </li>
               <li className="flex items-start gap-3">

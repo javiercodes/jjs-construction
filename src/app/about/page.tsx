@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import CTASection from "@/components/CTASection";
+import FadeUp from "@/components/FadeUp";
+import { StaggerGrid, StaggerItem } from "@/components/StaggerGrid";
 
 export const metadata: Metadata = {
   title: "About Us",
   description:
-    "Learn about JJ's Construction — La Verne's trusted general contractor with 15+ years of experience in residential remodeling and commercial construction across Southern California.",
+    "Learn about JJ's Construction — founded by brothers John and Adam Ramirez with 16+ years of experience in residential and commercial construction across Southern California.",
 };
 
 const values = [
@@ -39,28 +41,20 @@ const values = [
   },
 ];
 
-/* TODO: Replace with actual team members */
 const teamMembers = [
   {
-    name: "JJ Martinez",
-    role: "Owner / General Contractor",
-    initials: "JJ",
-    bio: "With over 15 years in the construction industry, JJ founded the company with a vision of quality-first construction in Southern California.",
+    name: "John Ramirez",
+    role: "Co-Founder & Owner",
+    initials: "JR",
+    bio: "With over 16 years in the construction industry, John co-founded JJ's Construction with a clear purpose: to build a company rooted in craftsmanship, integrity, and long-term client relationships.",
     color: "bg-primary",
   },
   {
-    name: "Sarah Chen",
-    role: "Project Manager",
-    initials: "SC",
-    bio: "Sarah ensures every project runs smoothly from start to finish, coordinating teams and keeping clients informed every step of the way.",
+    name: "Adam Ramirez",
+    role: "Co-Founder",
+    initials: "AR",
+    bio: "Adam brings deep field expertise and a commitment to quality control, helping lead a team equipped to handle projects of varying scale and complexity across residential and commercial construction.",
     color: "bg-accent",
-  },
-  {
-    name: "Mike Rodriguez",
-    role: "Lead Foreman",
-    initials: "MR",
-    bio: "Mike brings 20+ years of hands-on construction experience, leading our skilled crew with precision and dedication.",
-    color: "bg-primary-light",
   },
 ];
 
@@ -97,7 +91,7 @@ export default function AboutPage() {
       <section className="section-padding bg-white">
         <div className="container-custom mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="relative rounded-2xl overflow-hidden shadow-xl">
+            <FadeUp className="relative rounded-2xl overflow-hidden shadow-xl">
               <Image
                 src="/images/Custom Home Build - Modern/modern-home-completed.jpeg"
                 alt="JJ's Construction - completed modern home"
@@ -106,31 +100,22 @@ export default function AboutPage() {
                 className="object-cover w-full h-[400px] md:h-[500px]"
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
-            </div>
-            <div>
+            </FadeUp>
+            <FadeUp delay={0.15}>
               <span className="text-accent font-heading font-semibold text-sm uppercase tracking-widest">Our Story</span>
               <h2 className="font-heading text-3xl md:text-4xl font-bold text-primary mt-2 mb-6">
-                From Humble Beginnings to SoCal&apos;s Trusted Builder
+                Built on Craftsmanship, Integrity &amp; Long-Term Relationships
               </h2>
-              {/* TODO: Replace with actual company history */}
               <p className="text-charcoal/70 leading-relaxed mb-4">
-                Founded in La Verne, California, JJ&apos;s Construction began with a simple mission: to
-                deliver exceptional construction services with integrity and transparency. What started
-                as a small residential remodeling operation has grown into a full-service general
-                contracting firm serving communities across Southern California.
+                JJ&apos;s Construction was founded by brothers John and Adam Ramirez with a clear purpose: to build a company rooted in craftsmanship, integrity, and long-term client relationships. With over 16 years of experience in both residential and commercial construction, and a team that brings decades of combined field expertise, we are equipped to handle projects of varying scale and complexity.
               </p>
               <p className="text-charcoal/70 leading-relaxed mb-4">
-                Over the past 15 years, we&apos;ve completed hundreds of projects ranging from kitchen
-                and bathroom remodels to major commercial builds. Our growth is built on a foundation
-                of satisfied clients who trust us with their most important investments — their homes
-                and businesses.
+                Our approach is disciplined and detail-driven. We emphasize quality control, efficiency, and delivering work that meets the highest industry standards — while maintaining clear communication and accountability from start to finish.
               </p>
               <p className="text-charcoal/70 leading-relaxed">
-                Today, JJ&apos;s Construction continues to set the standard for quality, reliability,
-                and customer service in the industry. We&apos;re proud to call La Verne home and to
-                serve the communities that have supported us from day one.
+                We partner closely with our clients to align their vision with our construction expertise, delivering functional, well-built spaces designed to perform and endure. When you work with JJ&apos;s Construction, you can be confident your project is in capable and experienced hands.
               </p>
-            </div>
+            </FadeUp>
           </div>
         </div>
       </section>
@@ -144,15 +129,17 @@ export default function AboutPage() {
               Our Core Values
             </h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <StaggerGrid className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {values.map((value) => (
-              <div key={value.title} className="bg-white rounded-xl p-8 shadow-md text-center hover:shadow-lg transition-shadow">
-                <div className="text-accent mx-auto mb-4 flex justify-center">{value.icon}</div>
-                <h3 className="font-heading font-bold text-lg text-primary mb-3">{value.title}</h3>
-                <p className="text-charcoal/70 text-sm leading-relaxed">{value.description}</p>
-              </div>
+              <StaggerItem key={value.title}>
+                <div className="bg-white rounded-xl p-8 shadow-md text-center hover:shadow-lg transition-shadow hover:-translate-y-1 duration-300 border border-gray-100">
+                  <div className="text-accent mx-auto mb-4 flex justify-center">{value.icon}</div>
+                  <h3 className="font-heading font-bold text-lg text-primary mb-3">{value.title}</h3>
+                  <p className="text-charcoal/70 text-sm leading-relaxed">{value.description}</p>
+                </div>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerGrid>
         </div>
       </section>
 
@@ -165,12 +152,10 @@ export default function AboutPage() {
               Meet Our Team
             </h2>
             <p className="text-charcoal/70 max-w-2xl mx-auto">
-              {/* TODO: Replace with actual team description */}
-              Our talented team of professionals brings decades of combined experience in construction,
-              project management, and design.
+              Brothers John and Adam Ramirez founded JJ&apos;s Construction with a shared commitment to professionalism, transparency, and results without compromise. Together they lead a team with decades of combined field expertise.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl mx-auto">
             {teamMembers.map((member) => (
               <div key={member.name} className="text-center group">
                 {/* TODO: Replace with actual team photos */}
@@ -195,21 +180,38 @@ export default function AboutPage() {
               Licensed, Bonded &amp; Insured
             </h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
-            {/* TODO: Replace with actual license/certification info */}
+          <StaggerGrid className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
             {[
-              { label: "CA Contractor's License", detail: "License #XXXXXX", icon: "📋" },
-              { label: "General Liability Insurance", detail: "Fully Covered", icon: "🛡️" },
-              { label: "Workers' Compensation", detail: "All Employees Covered", icon: "👷" },
-              { label: "BBB Accredited", detail: "A+ Rating", icon: "⭐" },
+              {
+                label: "California Licensed Contractor",
+                detail: "Fully Licensed & Compliant",
+                icon: <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>,
+              },
+              {
+                label: "General Liability Insurance",
+                detail: "Fully Covered",
+                icon: <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>,
+              },
+              {
+                label: "Workers' Compensation",
+                detail: "All Employees Covered",
+                icon: <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M20 7H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/><path d="M12 7V4"/><path d="M8 7V5"/><path d="M16 7V5"/><circle cx="12" cy="12" r="2"/></svg>,
+              },
+              {
+                label: "BBB Accredited",
+                detail: "A+ Rating",
+                icon: <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>,
+              },
             ].map((cert) => (
-              <div key={cert.label} className="bg-white rounded-xl p-6 text-center shadow-md">
-                <div className="text-4xl mb-3">{cert.icon}</div>
-                <h3 className="font-heading font-bold text-primary text-sm mb-1">{cert.label}</h3>
-                <p className="text-charcoal/60 text-xs">{cert.detail}</p>
-              </div>
+              <StaggerItem key={cert.label}>
+                <div className="bg-white rounded-xl p-6 text-center shadow-md hover:shadow-lg transition-shadow border border-gray-100">
+                  <div className="text-accent mx-auto mb-3 flex justify-center">{cert.icon}</div>
+                  <h3 className="font-heading font-bold text-primary text-sm mb-1">{cert.label}</h3>
+                  <p className="text-charcoal/60 text-xs">{cert.detail}</p>
+                </div>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerGrid>
         </div>
       </section>
 

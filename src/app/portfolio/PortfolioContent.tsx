@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import CTASection from "@/components/CTASection";
+import { motion, AnimatePresence } from "framer-motion";
 
 const categories = ["All", "Custom Home", "Deck & Patio", "Pool Deck", "Bathroom", "Commercial", "Outdoor Living", "Pergola", "Home Renovation"];
 
@@ -30,7 +31,6 @@ const projects = [
   { id: 17, title: "Custom Home — Interior Framing Detail", category: "Custom Home", description: "Detailed view of staircase and floor framing during custom home construction.", image: "/images/Custom Home Build - General/custom-home-interior-framing-02.jpeg", location: "Southern California" },
   { id: 18, title: "Custom Home — Wood Siding", category: "Custom Home", description: "Horizontal cedar wood siding installation on a custom home exterior.", image: "/images/Custom Home Build - General/custom-home-wood-siding.jpeg", location: "Southern California" },
   { id: 19, title: "Custom Home — Entrance Tile", category: "Custom Home", description: "Completed modern home entrance with large-format tile, concrete driveway, and turf.", image: "/images/Custom Home Build - General/custom-home-entrance-tile-completed.jpeg", location: "Southern California" },
-
   // Deck & Patio
   { id: 20, title: "Multi-Level Wood Deck", category: "Deck & Patio", description: "Tiered multi-level wood deck with step landings, attached to a modern concrete home.", image: "/images/Deck Construction - Wood/wood-deck-multilevel-01.jpeg", location: "Southern California" },
   { id: 21, title: "Multi-Level Deck — Wide View", category: "Deck & Patio", description: "Wider angle of the multi-level cedar deck showing full scope and stepped design.", image: "/images/Deck Construction - Wood/wood-deck-multilevel-02.jpeg", location: "Southern California" },
@@ -38,7 +38,6 @@ const projects = [
   { id: 23, title: "Wood Deck Landing", category: "Deck & Patio", description: "Cedar deck landing off sliding glass doors — clean and minimal.", image: "/images/Deck Construction - Wood/wood-deck-landing.jpeg", location: "Southern California" },
   { id: 24, title: "LED Deck — Night View", category: "Deck & Patio", description: "Multi-level wood deck with amber LED strip lighting under each riser — stunning at night.", image: "/images/Deck Construction - LED Lighting/led-deck-01.jpeg", location: "Southern California" },
   { id: 25, title: "LED Deck — Alternate Angle", category: "Deck & Patio", description: "Alternate angle of the LED-lit deck showing full width and warm ambient glow.", image: "/images/Deck Construction - LED Lighting/led-deck-02.jpeg", location: "Southern California" },
-
   // Pool Deck
   { id: 26, title: "Composite Pool Deck & Spa", category: "Pool Deck", description: "Completed composite pool deck with circular brick spa surround — resort-style finish.", image: "/images/Pool Deck - Composite Decking/pool-deck-composite-completed-01.jpeg", location: "Southern California" },
   { id: 27, title: "Pool Deck — Full View", category: "Pool Deck", description: "Full-width composite deck running alongside the pool with clean lines and warm tones.", image: "/images/Pool Deck - Composite Decking/pool-deck-composite-completed-02.jpeg", location: "Southern California" },
@@ -46,13 +45,11 @@ const projects = [
   { id: 29, title: "Pool Deck & Spa — View 3", category: "Pool Deck", description: "Another angle of the composite pool deck with circular brick spa surround.", image: "/images/Pool Deck - Composite Decking/pool-deck-composite-spa-03.jpeg", location: "Southern California" },
   { id: 30, title: "Pool Deck & Spa — View 4", category: "Pool Deck", description: "Close-up showing the composite deck surface quality and spa surround detailing.", image: "/images/Pool Deck - Composite Decking/pool-deck-composite-spa-04.jpeg", location: "Southern California" },
   { id: 31, title: "Pool Deck — Wood Fence Wall", category: "Pool Deck", description: "Horizontal wood slat fence wall alongside a composite pool deck.", image: "/images/Pool Deck - Composite Decking/pool-deck-wood-fence-wall.jpeg", location: "Southern California" },
-
   // Bathroom
   { id: 32, title: "Luxury Marble Bathroom", category: "Bathroom", description: "Full spa-style remodel with Calacatta marble slab walls, frameless glass shower, and freestanding tub.", image: "/images/Bathroom Remodel/bathroom-luxury-marble-01.jpeg", location: "Southern California" },
   { id: 33, title: "Luxury Bathroom — Alternate View", category: "Bathroom", description: "Another view of the marble master bath showing soaking tub and glass shower enclosure.", image: "/images/Bathroom Remodel/bathroom-luxury-marble-02.jpeg", location: "Southern California" },
   { id: 34, title: "Herringbone Tile Bathroom", category: "Bathroom", description: "Custom tile work featuring herringbone chevron walls, penny mosaic accents, and glass shower.", image: "/images/Bathroom Remodel/bathroom-tile-herringbone-01.jpeg", location: "Southern California" },
   { id: 35, title: "Tile Bathroom — Alternate View", category: "Bathroom", description: "Full view of the herringbone tile bathroom showcasing ceiling detail and fixture placement.", image: "/images/Bathroom Remodel/bathroom-tile-herringbone-02.jpeg", location: "Southern California" },
-
   // Commercial
   { id: 36, title: "360 Ten — Completed Exterior", category: "Commercial", description: "Commercial tenant improvement — completed blue facade exterior of the 360 Ten building.", image: "/images/Commercial Construction/commercial-360ten-exterior-01.jpeg", location: "Southern California" },
   { id: 37, title: "360 Ten — Exterior View 2", category: "Commercial", description: "Side elevation of the completed 360 Ten commercial building with signage.", image: "/images/Commercial Construction/commercial-360ten-exterior-02.jpeg", location: "Southern California" },
@@ -61,7 +58,6 @@ const projects = [
   { id: 40, title: "Dental Arts Plaza", category: "Commercial", description: "Commercial renovation project — Dental Arts Plaza building exterior.", image: "/images/Commercial Construction/commercial-dental-arts-plaza-before.jpeg", location: "Southern California" },
   { id: 41, title: "Commercial Metal Panel Siding", category: "Commercial", description: "Modern commercial building with gray metal panel siding installation.", image: "/images/Commercial Construction/commercial-metal-panel-siding.jpeg", location: "Southern California" },
   { id: 42, title: "Metal Roof Installation", category: "Commercial", description: "Standing seam metal roofing installed on a commercial building.", image: "/images/Commercial Construction/commercial-metal-roof-installation.jpeg", location: "Southern California" },
-
   // Outdoor Living
   { id: 43, title: "Outdoor Fireplace — Completed", category: "Outdoor Living", description: "Stunning outdoor fireplace with Talavera tile surround, stucco finish, and herringbone terracotta pavers.", image: "/images/Outdoor Fireplace & BBQ/outdoor-fireplace-talavera-completed.jpeg", location: "Southern California" },
   { id: 44, title: "Outdoor Fireplace — Construction", category: "Outdoor Living", description: "Custom outdoor fireplace being built with Talavera tile accent and stucco exterior.", image: "/images/Outdoor Fireplace & BBQ/outdoor-fireplace-talavera-construction.jpeg", location: "Southern California" },
@@ -69,7 +65,6 @@ const projects = [
   { id: 46, title: "Wood Fence — Privacy Gate", category: "Outdoor Living", description: "Custom cedar privacy fence and gate with warm stain finish.", image: "/images/Fencing & Gates/wood-fence-gate.jpeg", location: "Southern California" },
   { id: 47, title: "Wood Fence — Diagonal Panel", category: "Outdoor Living", description: "Diagonal herringbone wood fence panel alongside a pool deck.", image: "/images/Fencing & Gates/wood-fence-diagonal-panel.jpeg", location: "Southern California" },
   { id: 48, title: "ADU Wood Structure", category: "Outdoor Living", description: "Small accessory dwelling unit with wood siding and metal roof.", image: "/images/ADU & Outbuildings/adu-wood-structure.jpeg", location: "Southern California" },
-
   // Pergola
   { id: 49, title: "Pergola with Composite Deck", category: "Pergola", description: "Wood pergola with modern black hardware over a composite deck — perfect outdoor living space.", image: "/images/Pergola & Patio Covers/pergola-with-composite-deck-01.jpeg", location: "Southern California" },
   { id: 50, title: "Pergola — Alternate Angle", category: "Pergola", description: "Alternate view of the pergola and composite deck with lush backyard setting.", image: "/images/Pergola & Patio Covers/pergola-with-composite-deck-02.jpeg", location: "Southern California" },
@@ -77,7 +72,6 @@ const projects = [
   { id: 52, title: "Curved Wood Ceiling — View 2", category: "Pergola", description: "Another angle of the curved wood ceiling pergola — exceptional carpentry detail.", image: "/images/Pergola & Patio Covers/pergola-curved-wood-ceiling-02.jpeg", location: "Southern California" },
   { id: 53, title: "Pergola — Mediterranean Garden", category: "Pergola", description: "Wood pergola under construction alongside a Mediterranean-style home with fountain garden.", image: "/images/Pergola & Patio Covers/pergola-mediterranean-garden.jpeg", location: "Southern California" },
   { id: 54, title: "Pergola — Under Construction", category: "Pergola", description: "Pergola framing with wood beams and ornate stone columns being assembled.", image: "/images/Pergola & Patio Covers/pergola-construction.jpeg", location: "Southern California" },
-
   // Home Renovation
   { id: 55, title: "Exterior Renovation — Scaffolding", category: "Home Renovation", description: "Home exterior renovation underway with full scaffolding setup.", image: "/images/Home Renovation - Exterior/home-renovation-scaffolding-01.jpeg", location: "Southern California" },
   { id: 56, title: "Exterior Renovation — Scaffolding 2", category: "Home Renovation", description: "Exterior renovation project showing dark board-and-batten siding application.", image: "/images/Home Renovation - Exterior/home-renovation-scaffolding-02.jpeg", location: "Southern California" },
@@ -129,15 +123,15 @@ export default function PortfolioContent() {
       <section className="section-padding bg-white">
         <div className="container-custom mx-auto">
           {/* Filter Buttons */}
-          <div className="flex flex-wrap justify-center gap-3 mb-12">
+          <div className="flex flex-wrap justify-center gap-2 mb-12">
             {categories.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setActiveFilter(cat)}
-                className={`font-heading font-semibold text-sm px-5 py-2.5 rounded-full transition-all duration-200 min-h-[44px] ${
+                className={`font-heading font-semibold text-sm px-5 py-2.5 rounded-full transition-all duration-200 min-h-[44px] border ${
                   activeFilter === cat
-                    ? "bg-accent text-white shadow-lg"
-                    : "bg-gray-100 text-charcoal hover:bg-gray-200"
+                    ? "bg-accent text-white border-accent shadow-lg shadow-accent/20"
+                    : "bg-white text-charcoal border-gray-200 hover:border-accent hover:text-accent"
                 }`}
               >
                 {cat}
@@ -146,41 +140,53 @@ export default function PortfolioContent() {
           </div>
 
           {/* Project Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-            {filteredProjects.map((project) => (
-              <div
-                key={project.id}
-                className="group rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 bg-white"
-              >
-                <div className="relative h-64 overflow-hidden">
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-500"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    loading="lazy"
-                  />
-                  <div className="absolute top-4 left-4">
-                    <span className="bg-accent text-white text-xs font-heading font-bold px-3 py-1 rounded-full">
-                      {project.category}
-                    </span>
+          <motion.div
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
+            layout
+          >
+            <AnimatePresence mode="popLayout">
+              {filteredProjects.map((project) => (
+                <motion.div
+                  key={project.id}
+                  layout
+                  initial={{ opacity: 0, scale: 0.92 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.92 }}
+                  transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
+                  className="group rounded-xl overflow-hidden shadow-md hover:shadow-2xl transition-shadow duration-300 bg-white"
+                >
+                  <div className="relative h-64 overflow-hidden">
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-700"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="absolute top-4 left-4">
+                      <span className="bg-accent text-white text-xs font-heading font-bold px-3 py-1 rounded-full">
+                        {project.category}
+                      </span>
+                    </div>
+                    <div className="absolute bottom-0 left-0 right-0 p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                      <p className="text-white text-sm leading-snug">{project.description}</p>
+                    </div>
                   </div>
-                  <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/20 transition-colors duration-300" />
-                </div>
-                <div className="p-6">
-                  <h3 className="font-heading font-bold text-lg text-primary mb-2 group-hover:text-accent transition-colors">
-                    {project.title}
-                  </h3>
-                  <p className="text-charcoal/70 text-sm mb-3">{project.description}</p>
-                  <div className="flex items-center gap-1 text-charcoal/50 text-xs">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                    {project.location}
+                  <div className="p-5">
+                    <h3 className="font-heading font-bold text-base text-primary mb-1 group-hover:text-accent transition-colors">
+                      {project.title}
+                    </h3>
+                    <div className="flex items-center gap-1 text-charcoal/50 text-xs">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                      {project.location}
+                    </div>
                   </div>
-                </div>
-              </div>
-            ))}
-          </div>
+                </motion.div>
+              ))}
+            </AnimatePresence>
+          </motion.div>
 
           {filteredProjects.length === 0 && (
             <div className="text-center py-16">

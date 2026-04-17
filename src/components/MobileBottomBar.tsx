@@ -7,7 +7,7 @@ export default function MobileBottomBar() {
     <div className="fixed bottom-0 left-0 right-0 z-40 md:hidden bg-white border-t border-gray-200 shadow-[0_-4px_20px_rgba(0,0,0,0.1)]">
       <div className="grid grid-cols-2 gap-0">
         <a
-          href="tel:+16265522471"
+          href="tel:+16266463423"
           className="flex items-center justify-center gap-2 bg-primary text-white font-heading font-bold text-sm py-4 min-h-[56px] hover:bg-primary-dark transition-colors"
         >
           <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
