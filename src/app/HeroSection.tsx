@@ -16,31 +16,34 @@ const item = {
 export default function HeroSection() {
   return (
     <motion.div className="max-w-2xl" variants={container} initial="hidden" animate="show">
-      <motion.span
+      <motion.p
         variants={item}
-        className="inline-block bg-accent/90 text-white font-heading font-semibold text-sm px-4 py-2 rounded-full mb-6 tracking-wide uppercase"
+        className="text-gray-300 font-heading text-sm uppercase tracking-widest mb-5"
       >
-        La Verne&apos;s Trusted Contractor
-      </motion.span>
+        La Verne, California
+      </motion.p>
       <motion.h1
         variants={item}
-        className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6"
+        className="font-heading text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.05] mb-7"
       >
-        Built on Craftsmanship.{" "}
-        <span className="text-accent">Driven by Precision.</span>
+        Built on{" "}
+        <span className="text-accent">craftsmanship.</span>
+        <br />
+        Driven by precision.
       </motion.h1>
       <motion.p
         variants={item}
-        className="text-gray-200 text-lg md:text-xl leading-relaxed mb-8 max-w-xl"
+        className="text-gray-300 text-lg leading-relaxed mb-10 max-w-lg"
       >
-        16+ years of residential and commercial construction across Southern California. Detail-driven, accountable, and built to last.
+        General contractors serving Southern California for 16+ years — residential, commercial, and everything in between.
       </motion.p>
-      <motion.div variants={item} className="flex flex-col sm:flex-row gap-4">
-        <Link href="/contact" className="btn-primary text-lg !px-10 !py-4">
-          Get a Free Estimate
-        </Link>
-        <Link href="/portfolio" className="btn-outline text-lg">
+      <motion.div variants={item} className="flex flex-col sm:flex-row gap-4 items-start">
+        <Link href="/portfolio" className="btn-secondary text-base !px-8 !py-3.5">
           View Our Work
+        </Link>
+        <Link href="/contact" className="text-white font-heading font-semibold text-base flex items-center gap-2 hover:text-accent transition-colors py-3.5">
+          Get a Free Estimate
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </Link>
       </motion.div>
     </motion.div>
