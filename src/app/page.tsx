@@ -93,7 +93,7 @@ export default function HomePage() {
           sizes="100vw"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent" />
-        <div className="relative z-10 container-custom mx-auto px-4 py-20">
+        <div className="relative z-10 container-custom w-full px-4 py-20">
           <HeroSection />
         </div>
       </section>
@@ -117,18 +117,20 @@ export default function HomePage() {
               </p>
             </FadeUp>
             <FadeUp delay={0.25}>
-              <div className="mt-10 pt-10 border-t border-gray-100 flex flex-col sm:flex-row gap-8 sm:gap-16">
+              <div className="mt-10 pt-10 border-t border-gray-100 flex flex-col sm:flex-row gap-8 sm:gap-12 items-start sm:items-center">
                 <div>
-                  <p className="font-heading font-bold text-3xl text-primary">16+</p>
+                  <p className="font-heading font-bold text-4xl text-primary">16+</p>
                   <p className="text-charcoal/60 text-sm mt-1">Years in business</p>
                 </div>
+                <div className="hidden sm:block w-px h-10 bg-gray-200" />
                 <div>
-                  <p className="font-heading font-bold text-3xl text-primary">Residential</p>
-                  <p className="text-charcoal/60 text-sm mt-1">& Commercial</p>
+                  <p className="font-heading font-bold text-xl text-primary">Residential &amp; Commercial</p>
+                  <p className="text-charcoal/60 text-sm mt-1">General contracting</p>
                 </div>
+                <div className="hidden sm:block w-px h-10 bg-gray-200" />
                 <div>
-                  <p className="font-heading font-bold text-3xl text-primary">Southern</p>
-                  <p className="text-charcoal/60 text-sm mt-1">California</p>
+                  <p className="font-heading font-bold text-xl text-primary">Southern California</p>
+                  <p className="text-charcoal/60 text-sm mt-1">SGV &amp; Inland Empire</p>
                 </div>
                 <div className="sm:ml-auto">
                   <Link href="/about" className="inline-flex items-center gap-2 text-accent font-heading font-semibold hover:gap-3 transition-all">
@@ -270,20 +272,20 @@ export default function HomePage() {
       </section>
 
       {/* Testimonial */}
-      <section className="py-24 md:py-32 bg-primary relative overflow-hidden">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 font-serif text-[220px] leading-none text-white/5 select-none pointer-events-none -mt-8">
+      <section className="py-24 md:py-32 bg-gray-light relative overflow-hidden">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 font-serif text-[220px] leading-none text-primary/5 select-none pointer-events-none -mt-8">
           &ldquo;
         </div>
         <div className="container-custom mx-auto px-4 relative z-10">
           <FadeUp className="max-w-3xl mx-auto text-center">
-            <blockquote className="font-heading text-xl md:text-2xl text-white leading-relaxed mb-8 italic font-medium">
+            <blockquote className="font-heading text-xl md:text-2xl text-primary leading-relaxed mb-8 italic font-medium">
               &ldquo;JJ&apos;s Construction exceeded our expectations on every level. The team was professional,
               communicated throughout the entire process, and delivered a kitchen that is beyond
               what we imagined.&rdquo;
             </blockquote>
             <div className="w-12 h-0.5 bg-accent mx-auto mb-6" />
-            <p className="font-heading font-bold text-white">Maria &amp; David R.</p>
-            <p className="text-gray-400 text-sm mt-1">Kitchen Remodel — La Verne, CA</p>
+            <p className="font-heading font-bold text-primary">Maria &amp; David R.</p>
+            <p className="text-charcoal/60 text-sm mt-1">Kitchen Remodel — La Verne, CA</p>
             <div className="flex items-center justify-center gap-1 mt-4">
               {[...Array(5)].map((_, i) => (
                 <svg key={i} xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-accent" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
